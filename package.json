@@ -1,0 +1,19 @@
+{
+  "name": "monorepo-setup-tsc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --workspace=frontend & npm run dev --workspace=server & npm run dev --workspace=trcp-playground"
+  },
+  "workspaces": [
+    "./packages/client",
+    "./packages/server",
+    "./packages/trcp-playground"
+
+  ],
+  "devDependencies": {
+    "lerna": "^7.4.1"
+  }
+}
