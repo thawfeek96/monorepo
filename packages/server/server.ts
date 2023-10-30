@@ -1,20 +1,26 @@
-import express, { Application, NextFunction, Request, Response } from 'express'
-import * as trpcExpress from '@trpc/server/adapters/express'
-
-import cors from 'cors'
-import { appRoute } from './controller/todoRouter'
-
-const app: Application = express()
-app.use(cors())
+import { Elysia } from 'elysia';
+import { trpc } from '@elysiajs/trpc';
+import { cors } from '@elysiajs/cors';
+import {appRoute} from './controller/userControl'
 
 
-app.use('/trcp', trpcExpress.createExpressMiddleware({
- router: appRoute
-}))
+const app = new Elysia();
+
+app.use(cors());
+app.use(trpc(appRoute));
+
+app.get('/', () => {
+    return {
+        success: true,
+        message: 'Welcome to Feedback Sync V2 Server!',
+    };
+});
 
 
 
-const PORT: number = Number(process.env.PORT) || 5000
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on Port: ${PORT}`)
-})
+app.listen({
+    port: process.env.PORT || 5000,
+});
+
+
+console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
