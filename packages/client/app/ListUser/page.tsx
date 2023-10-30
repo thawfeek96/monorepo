@@ -22,13 +22,13 @@ interface UserData {
 }
 
 const ListUser: React.FC = () => {
-  const user = useSelector((state: UserListState) => state.userInfo.user);
-  const dispatch = useDispatch();
+  // const user = useSelector((state: UserListState) => state.userInfo.user);
+  // const dispatch = useDispatch();
 
 
-  const remove = (id: string) => {
-    dispatch(removeUser({ id }));
-  };
+  // const remove = (id: string) => {
+  //   dispatch(removeUser({ id }));
+  // };
 
 
 
@@ -50,7 +50,9 @@ const ListUser: React.FC = () => {
     <div>
       <Navbar />
 
-      <div className=" flex items-center flex-wrap gap-5">
+     <h1>ListUser</h1>
+
+      {/* <div className=" flex items-center flex-wrap gap-5">
         {user.map((i: UserData) => (
           <div
             key={i.id}
@@ -71,7 +73,7 @@ const ListUser: React.FC = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

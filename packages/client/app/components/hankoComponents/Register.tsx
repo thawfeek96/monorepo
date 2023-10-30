@@ -4,7 +4,7 @@ import { useEffect, useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { register, Hanko } from "@teamhanko/hanko-elements";
 
-const hankoApi =  process.env.NEXT_PUBLIC_HANKO_API_URL;
+const hankoApi = process.env.NEXT_PUBLIC_HANKO_API_URL;
 
 export default function HankoAuth() {
   const router = useRouter();
@@ -39,19 +39,20 @@ export default function HankoAuth() {
   }, []);
 
   return (
+
+
     <div
       style={{
         boxShadow: "0px 0px 61.3082px rgba(0, 0, 0, 0.15)",
       }}
-      className="flex items-center flex-col py-6"
+      className="flex items-center justify-center flex-col py-6 w-full h-full "
     >
-      <img
-        className="w-[185px] block mx-auto"
-        src="https://feedbackuploadimage.s3.ap-south-1.amazonaws.com/FeedbackBrand.png"
-        alt="logo"
-      />
-
+      <div className="">
       <hanko-auth />
+        
+      </div>
+
+
     </div>
   );
 }

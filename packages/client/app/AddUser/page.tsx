@@ -15,48 +15,53 @@ interface UserInfo {
 }
 
 const AddUser = () => {
-  const dispatch = useDispatch();
-  const [userInfo, setUserInfo] = useState({
-    id: "",
-    name: "",
-    email: "",
-    contact: "",
-    age: "",
-  });
+  // const dispatch = useDispatch();
+  // const [userInfo, setUserInfo] = useState({
+  //   id: "",
+  //   name: "",
+  //   email: "",
+  //   contact: "",
+  //   age: "",
+  // });
 
-  useEffect(() => {
-    setUserInfo((pre: UserInfo) => {
-      return {
-        ...pre,
-        id: uuidv4(),
-      };
-    });
-  }, []);
+  // useEffect(() => {
+  //   setUserInfo((pre: UserInfo) => {
+  //     return {
+  //       ...pre,
+  //       id: uuidv4(),
+  //     };
+  //   });
+  // }, []);
 
-  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    const { name, value } = e.currentTarget;
-    setUserInfo((pre) => {
-      return {
-        ...pre,
-        [name]: value,
-      };
-    });
-  };
+  // const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+  //   const { name, value } = e.currentTarget;
+  //   setUserInfo((pre) => {
+  //     return {
+  //       ...pre,
+  //       [name]: value,
+  //     };
+  //   });
+  // };
 
-  const handleSubmit = () => {
-    dispatch(addUser(userInfo));
-    setUserInfo({
-      id: uuidv4(),
-      name: "",
-      email: "",
-      contact: "",
-      age: "",
-    });
-  };
+  // const handleSubmit = () => {
+  //   dispatch(addUser(userInfo));
+  //   setUserInfo({
+  //     id: uuidv4(),
+  //     name: "",
+  //     email: "",
+  //     contact: "",
+  //     age: "",
+  //   });
+  // };
+
+  console.log('middleware', );
+  
+
   return (
     <div className="">
       <Navbar />
-      <div className="addUser flex items-center justify-center flex-col bg-red-400  w-[100vw] h-[100vh]">
+      <h1>AddUser</h1>
+      {/* <div className="addUser flex items-center justify-center flex-col bg-red-400  w-[100vw] h-[100vh]">
         <div className=" w-[600px] flex flex-col border-2 border-white p-6 gap-6 rounded-lg text-center">
           <h1 className=" text-white text-2xl font-bold">
             Add User Information
@@ -109,7 +114,7 @@ const AddUser = () => {
             ADD User
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

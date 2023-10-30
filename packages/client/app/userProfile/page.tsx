@@ -10,6 +10,8 @@ import { useRouter } from "next/navigation";
 import { Hanko } from "@teamhanko/hanko-elements";
 
 import { trcp } from "@/app/lib/trpc";
+import axios from "axios";
+
 
 // import hanko api url
 const hankoApi = process.env.NEXT_PUBLIC_HANKO_API_URL;
@@ -34,10 +36,23 @@ const userProfile = () => {
   // const trcpContext = trcp.useContext();
 
 
-  const responce = trcp.userList.list.useQuery();
+  // const responce = trcp.userList.list.useQuery();
 
-  console.log('responce', responce.data);
-  
+  useEffect(() => {
+    const API = async () => {
+      const { data } = await axios.get('http://localhost:5000/', {
+        withCredentials: true
+      })
+      console.log('data', data);
+
+    }
+    API()
+  }, [])
+
+
+
+
+
 
   // if (responce.isError) {
   //   return <h2>Error</h2>;
@@ -87,7 +102,7 @@ const userProfile = () => {
     });
   };
 
-  const handelSubmit =  () => {
+  const handelSubmit = () => {
     addTodoMutation.mutate(
       {
         id: userInfo.id,
@@ -99,7 +114,7 @@ const userProfile = () => {
       {
         onSuccess: (e) => {
           console.log('e', e);
-          
+
           setUserInfo({
             id: "",
             name: "",
@@ -210,7 +225,7 @@ const userProfile = () => {
           )}
         </div>
       </div>
-{/* 
+      {/* 
       <div>
         {responce.data.map((i: any) => (
           <p key={i.id}>{i.name}</p>

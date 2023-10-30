@@ -52,6 +52,7 @@ body {
   align-content: flex-start  !important;
   box-sizing: border-box  !important;
   border-radius: 15px;
+  box-shadow: 0px 0px 61.3082px rgba(0, 0, 0, 0.15);
 }
 
 .hanko_content {
@@ -369,7 +370,8 @@ body {
 .hanko_headline.hanko_grade1 {
   font-size: var(--headline1-font-size, 24px);
   font-weight: var(--headline1-font-weight, 600);
-  margin: var(--headline1-margin, 0 0 1rem)
+  margin: var(--headline1-margin, 0 0 1rem);
+  text-align: center;
 }
 
 .hanko_headline.hanko_grade2 {
