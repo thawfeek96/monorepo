@@ -1,4 +1,4 @@
-import { trpc, createRouter } from "../lib/TRCP";
+import { trpc } from "../lib/TRCP";
 import { z } from "zod";
 import { prisma } from "../lib/prismaClient";
 
@@ -36,7 +36,6 @@ export const listUser = trpc.router({
   list: trpc.procedure.query(async() => {
     const users = await prisma.tbl_user.findMany(); // Assuming your Prisma model is named 'todo'
 
-    console.log('uses', users);
     
     return  users
   }),
